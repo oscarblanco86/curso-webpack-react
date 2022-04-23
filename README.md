@@ -97,3 +97,15 @@ src/styles/global.scss
 
 se agrego en index.js
 import './styles/global.scss';
+
+
+
+clase 26
+
+npm install css-minimizer-webpack-plugin terser-webpack-plugin clean-webpack-plugin -D
+
+se creo el archivo webpack.config.dev.js
+
+se quito el recurso de webserve y se agrego el de optimizacion en webpack.config.js
+
+se realiza configuracion en el package.json para el start y build
