@@ -1,7 +1,12 @@
 const path = require('path');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
+    performance: {
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -17,11 +22,23 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                 }
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    { loader: 'html-loader' }
+                ]
             }
         ]
     },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: './public/index.html',
+            filename: './index.html'
+        })
+    ],
     devServer: {
-        contentBase: path.join(__dirname,'dist'),
+        static: path.resolve(__dirname, 'dist'),
         compress: true,
         port: 3006
     }

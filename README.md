@@ -21,3 +21,8 @@ npm install -D webpack webpack-cli webpack-dev-server
 
 creacion del archivo
 .babelrc
+
+clase 24
+
+npm install html-loader html-webpack-plugin -D
+
