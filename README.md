@@ -26,3 +26,74 @@ clase 24
 
 npm install html-loader html-webpack-plugin -D
 
+se agrego en el package.json
+    "start": "webpack serve --mode production",
+
+
+Debido a un error se agrego en el module.exports de webpack.config
+
+            performance: {
+                    maxEntrypointSize: 512000,
+                    maxAssetSize: 512000
+                },
+
+
+siempre dentro de webpack
+
+        devServer: {
+                static: path.resolve(__dirname, 'dist'),
+                compress: true,
+                port: 3006
+            }
+
+dentro de .babelrc
+
+        {
+            "presets": [
+                "@babel/preset-env",
+                "@babel/preset-react"
+            ]
+        }
+
+se corrigieron errores en los archivos de App.jx, e index.html
+
+clase 25 webpack y sass css
+
+
+npm install mini-css-extract-plugin css-loader style-loader sass sass-loader -D
+
+
+
+dentro de webpack.config
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+rules
+
+            {
+                test: /\.s[ac]ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            }
+
+dentro de plugin
+
+            new MiniCssExtractPlugin({
+            filename: '[name].css'
+
+se creo el archivo
+src/styles/global.scss
+
+            $base-color: #c6538c;
+            $color: rgba(black, 0.88);
+
+            body {
+                background-color: $base-color;
+                color: $color;
+            }
+
+se agrego en index.js
+import './styles/global.scss';
